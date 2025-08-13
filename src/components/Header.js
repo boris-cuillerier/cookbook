@@ -5,7 +5,7 @@ const Header = ({ pseudo }) => {
          /[aeiouy]/i.test(pseudo[0]) ? `d'${pseudo}` : `de ${pseudo}`
   return (
     <header>
-        <h1>La boîte à recettes de {formatPseudo(pseudo)}</h1>
+        <h1>La boîte à recettes {formatPseudo(pseudo)}</h1>
     </header>    
   );
 }
