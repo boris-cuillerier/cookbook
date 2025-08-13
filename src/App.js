@@ -24,6 +24,12 @@ class App extends Component {
     base.removeBinding(this.ref);
   }
 
+  ajouterRecette = recette => {
+    const recettes = { ...this.state.recettes }
+    recettes[`recette-${Date.now()}`] = recette
+    this.setState({ recettes })
+  }
+
   loadExample = () => {
     this.setState({ recettes });
   }
@@ -38,7 +44,9 @@ class App extends Component {
         <div className='cards'>
           { cards }
         </div>
-        <Admin loadExample={this.loadExample} />
+        <Admin
+          ajouterRecette={this.ajouterRecette}
+          loadExample={this.loadExample} />
       </div>
     )
   }
