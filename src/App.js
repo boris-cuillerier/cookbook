@@ -30,6 +30,12 @@ class App extends Component {
     this.setState({ recettes })
   }
 
+  majRecette = (key, newRecette) => {
+    const recettes = { ...this.state.recettes }
+    recettes[key] = newRecette
+    this.setState({ recettes })
+  }
+
   loadExample = () => {
     this.setState({ recettes });
   }
@@ -45,7 +51,9 @@ class App extends Component {
           { cards }
         </div>
         <Admin
+          recettes={this.state.recettes}
           ajouterRecette={this.ajouterRecette}
+          majRecette={this.majRecette}
           loadExample={this.loadExample} />
       </div>
     )
